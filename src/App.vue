@@ -19,9 +19,20 @@
     export default {
         components: {Video, Control, Map},
         data() {
-            return {
-
-            }
+            return {}
+        },
+        mounted() {
+            this.$api.login.login('xujian', 'xujian')
+                .then(res => {
+                    console.log(res)
+                    this.$toast({
+                        message: "登录成功",
+                        duration: 1000,
+                        forbidClick: true
+                    })
+                }).catch(err => {
+                console.log(err)
+            })
         },
         methods: {
             clickHighWay(isShowHighWay) {

@@ -45,6 +45,7 @@
 
         },
         mounted() {
+            let myvideo = document.getElementById("myvideo");
             myvideo.addEventListener("x5videoenterfullscreen", function () {
 
             })

@@ -1,13 +1,13 @@
 <template>
     <div class="control">
         <div>
-            <img :src="imgHighWay" @click="clickHighWay">
+            <img :src="imgHighWay" @click="clickHighWay" alt="高速路">
         </div>
         <div>
-            <img :src="imgCamera" @click="clickCamera">
+            <img :src="imgCamera" @click="clickCamera" alt="摄像机">
         </div>
         <div>
-            <img :src="imgLocation" @click="clickLocation">
+            <img :src="imgLocation" @click="clickLocation"  alt="定位">
         </div>
     </div>
 </template>
