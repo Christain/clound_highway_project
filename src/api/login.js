@@ -28,7 +28,7 @@ const login = {
             opt: 'if4UserInfo',
             fid: 'resource.integratedbis.system.user.UserCenter',
         }
-        return axios.post(`${base.url} ${base.function}`, qs.stringify(param))
+        return axios.post(`${base.url}${base.function}`, qs.stringify(param))
     }
 }
 

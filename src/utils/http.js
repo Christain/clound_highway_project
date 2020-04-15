@@ -51,7 +51,7 @@ const errorHandle = (status, message) => {
         case 200013:
             tip('登录过期，请重新登录');
             localStorage.removeItem('token');
-            store.commit('loginSuccess', null);
+            store.commit('login/setToken', null);
             setTimeout(() => {
                 toLogin();
             }, 1000);
@@ -79,8 +79,12 @@ instance.interceptors.request.use(
         // 但是即使token存在，也有可能token是过期的，所以在每次的请求头中携带token
         // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
         // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
-        const token = store.state.token;
+        const token = store.state.login.token;
         token && (config.headers.Authorization = token);
+        if (token) {
+            config.headers.post['token'] = token
+        }
+        console.log(config)
         return config;
     },
     error => Promise.error(error))
@@ -92,6 +96,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     // 请求成功
     res => {
+        console.log(res)
         if (res.status === 200) {
             if (Object.prototype.hasOwnProperty.call(res.data, 'ecode')) {
                 if (res.data.ecode === 0 || res.data.ecode === 200000 || res.data.ecode === 200006) {
@@ -110,6 +115,7 @@ instance.interceptors.response.use(
     },
     // 请求失败
     error => {
+        console.log(error)
         const {response} = error;
         if (response) {
             // 请求已发出，但是不在2xx的范围
