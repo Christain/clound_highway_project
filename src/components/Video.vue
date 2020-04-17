@@ -122,16 +122,14 @@
     }
 
     .videoName {
-        display: block;
         color: #333333;
         font-size: 15px;
         padding-left: 8px;
-        padding-right: 5px;
+        padding-right: 8px;
         flex: 1;
         text-align: left;
         vertical-align: center;
-        line-height: 18px;
-        height: fit-content;
+        line-height: 1.2em;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;

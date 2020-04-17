@@ -1,11 +1,9 @@
 <template>
     <div class="rootView">
-        <div>
-            <span class="title">云高速</span>
-        </div>
-
-            <div><img class="logo" src="../assets/logo.png" alt="logo"/></div>
-
+        <div class="div_top"></div>
+        <img class="style_logo" src="../assets/fullsee_logo.png" alt="logo"/>
+        <p class="style_app_name">云高速</p>
+        <div class="div_mid"></div>
         <van-form @submit="onSubmit" style="width: 100%">
             <van-field
                     v-model="username"
@@ -24,19 +22,18 @@
                     placeholder="密码"
                     :rules="[{ required: true, message: '请填写密码' }]"
             />
-            <div style="margin-top: 30px; margin-left: 15px; margin-right: 15px">
+            <div style="margin-top: 40px; margin-left: 15px; margin-right: 15px">
                 <van-button round block type="info" native-type="submit">
                     登录
                 </van-button>
             </div>
         </van-form>
+        <div class="div_bottom"></div>
     </div>
 </template>
 
 <script>
-    import {Form} from 'vant'
-    import {Field} from 'vant'
-    import {Button} from 'vant'
+    import {Button, Field, Form} from 'vant'
 
     export default {
         name: "Login",
@@ -80,28 +77,41 @@
 
 <style scoped>
     .rootView {
-        display: flex;
-        flex-direction: column;
         width: 100%;
         height: 100%;
         position: absolute;
-        align-items: center;
         background-color: #F5F5F5;
+        display: flex;
+        flex-direction: column;
     }
 
-    .title {
+    .style_app_name {
+        text-align: center;
+        font-size: 20px;
+        /*font-weight: bold;*/
+        margin-top: 15px;
+    }
+
+    .style_logo {
+        display: block;
         position: relative;
-        top: 70px;
-        font-size: 25px;
-        font-weight: bold;
-        background-color: #00000000;
+        left: 50%;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+        /*margin-top: 70px;*/
+        /*margin-bottom: 10px;*/
     }
 
-    .logo {
-        display: inline-flex;
-        width: 150px;
-        height: 150px;
-        margin-bottom: 30px;
-        margin-top: 70px;
+    .div_top {
+        flex: 2;
+    }
+
+    .div_mid {
+        flex: 2;
+    }
+
+    .div_bottom {
+        flex: 5;
     }
 </style>

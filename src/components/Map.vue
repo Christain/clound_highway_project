@@ -129,7 +129,7 @@
                 } else {
                     return id
                 }
-                url = 'http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8'
+                // url = 'http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8'
                 this.$emit("clickPoint", url, obj.name)
             }
         }
